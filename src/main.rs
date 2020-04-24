@@ -12,7 +12,7 @@ fn main() {
 
         // Display instructions:
         println!("Welcome, please select your INPUT unit:\n");
-        println!("1. for Celcius \n2. for Farenheit");
+        println!("1. for Celcius \n2. for Farenheit \n3. to quit");
 
         // Declare unit type variable and wait for input:
         let mut unit = String::new();
@@ -25,6 +25,10 @@ fn main() {
             },
             
         };
+
+        if unit == 3 {
+            break
+        }
         
         // Get the input temperature:
         loop {
@@ -48,15 +52,15 @@ fn main() {
                 let output:f64 = (temp * 1.8) + 32.0;
                 // Print the output:
                 println!(
-                    "\n--------------------------------\n{:.2} celcius = {:.2} farenheit\n--------------------------------\n", temp, output);
+                    "\n-------------------\n{:.2}℃  = {:.2}℉\n-------------------\n", temp, output);
                 break
 
             // Farenheit to Celcius:
-            } else {
+            } else if unit == 2 {
                 let output:f64 = (temp - 32.0) / 1.8;
                 // Print the output:
                 println!(
-                    "\n--------------------------------\n{:.2} farenheit = {:.2} celcius\n--------------------------------\n", temp, output);
+                    "\n-------------------\n{:.2}℉  = {:.2}℃\n-------------------\n", temp, output);
                 break
             };
         };

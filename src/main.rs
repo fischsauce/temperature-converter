@@ -4,26 +4,22 @@ use std::io;
 
 fn main() {
     
-    
     loop {
 
-        // const celcius: u8 = 1;
-        // const farenheit: u8 = 2;
-
         // Display instructions:
-        println!("Welcome, please select your INPUT unit:\n");
+        println!("Welcome, select your INPUT units:\n");
         println!("1. for Celcius \n2. for Farenheit \n3. to quit");
 
         // Declare unit type variable and wait for input:
         let mut unit = String::new();
         io::stdin().read_line(&mut unit).expect("Failed to read line");
+        
         // Ensure unit selection is a number between 1..3 (ie 1 or 2):
         let unit: u8 = match unit.trim().parse() {
             Ok(num) => num,
             Err(_) => {
                 continue
             },
-            
         };
 
         if unit == 3 {
@@ -32,7 +28,7 @@ fn main() {
         
         // Get the input temperature:
         loop {
-            println!("Please enter the temperature to convert:");
+            println!("Enter the temperature to convert:");
             
             // Declare temp variable and wait for input:
             let mut temp = String::new();
